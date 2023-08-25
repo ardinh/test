@@ -7,6 +7,7 @@ import 'package:haha/providers/api/api_repository.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:haha/shared/configs/database.dart';
+import 'package:reaction_askany/models/emotions.dart';
 import 'package:sqflite/sqflite.dart';
 
 class IndexController extends GetxController {
@@ -26,23 +27,30 @@ class IndexController extends GetxController {
   var data = Rxn<Product>();
   var pages = RxList<Widget>();
   var isFavorite = false.obs;
+  var emotion = Rxn<Emotions>();
 
-  RxList<ChatMessage> messages = <ChatMessage>[
-    ChatMessage(sender: 'Alice', text: 'Hello!'),
-    ChatMessage(sender: 'Bob', text: 'Hi there!'),
-    // Add more dummy messages here
+  RxList<ChatMessage> chatMessage = <ChatMessage>[
+    ChatMessage(message: "Hi", reciever: true),
+    ChatMessage(message: "This is Louji", reciever: true),
+    ChatMessage(message: "from tenkasi", reciever: true),
+    ChatMessage(message: "Hey Louji.", reciever: false),
+    ChatMessage(message: "What's up", reciever: false),
+    ChatMessage(
+        message: "I want to learn Mobile Development. ", reciever: true),
+    ChatMessage(message: "Which is best framework", reciever: true),
+    ChatMessage(message: "Upto me. Flutter will be good", reciever: false),
   ].obs;
 
-  void toggleReaction(ChatMessage message) {
-    final index = messages.indexOf(message);
-    if (index != -1) {
-      if (messages[index].reaction == null) {
-        messages[index].reaction = '👍';
-      } else {
-        messages[index].reaction = null;
-      }
-    }
-  }
+  // void toggleReaction(ChatMessage message) {
+  //   final index = messages.indexOf(message);
+  //   if (index != -1) {
+  //     if (messages[index].reaction == null) {
+  //       messages[index].reaction = '👍';
+  //     } else {
+  //       messages[index].reaction = null;
+  //     }
+  //   }
+  // }
 
   @override
   void onInit() async {
@@ -83,6 +91,8 @@ class IndexController extends GetxController {
       }
     }
   }
+
+  Future<void> onDoubleTap() async {}
 
   Future<void> getDataFav() async {
     for (var row in datas) {

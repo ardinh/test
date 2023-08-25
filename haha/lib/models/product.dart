@@ -201,39 +201,35 @@ class Product extends CoreModel {
                       ),
                     ),
                     GestureDetector(
-                      child: Positioned(
-                        left: constraints.maxWidth / 1.32,
-                        top: constraints.maxHeight / 1.59,
-                        child: Container(
-                          width: constraints.maxWidth * 0.24,
-                          height: constraints.maxHeight * 0.14,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: const Color(0xFFFFFFFF),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFF9B9B9B),
-                                blurRadius: constraints.maxWidth * 0.001,
-                                spreadRadius: constraints.maxWidth * 0.001,
-                                offset: Offset(0, constraints.maxWidth * 0.005),
-                              ),
-                            ],
-                          ),
-                          child: IconButton(
-                            color: (favorite!)
-                                ? const Color(0xFFDB3022)
-                                : const Color(0xFF9B9B9B),
-                            icon: (favorite!)
-                                ? const Icon(Icons.favorite)
-                                : const Icon(Icons.favorite_border),
-                            onPressed: () async {
-                              if (favorite!) {
-                                await ic.updateData(false, id);
-                              } else {
-                                await ic.updateData(true, id);
-                              }
-                            },
-                          ),
+                      child: Container(
+                        width: constraints.maxWidth * 0.24,
+                        height: constraints.maxHeight * 0.14,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: const Color(0xFFFFFFFF),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF9B9B9B),
+                              blurRadius: constraints.maxWidth * 0.001,
+                              spreadRadius: constraints.maxWidth * 0.001,
+                              offset: Offset(0, constraints.maxWidth * 0.005),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          color: (favorite!)
+                              ? const Color(0xFFDB3022)
+                              : const Color(0xFF9B9B9B),
+                          icon: (favorite!)
+                              ? const Icon(Icons.favorite)
+                              : const Icon(Icons.favorite_border),
+                          onPressed: () async {
+                            if (favorite!) {
+                              await ic.updateData(false, id);
+                            } else {
+                              await ic.updateData(true, id);
+                            }
+                          },
                         ),
                       ),
                     ),

@@ -1,7 +1,8 @@
-class ChatMessage {
-  final String sender;
-  final String text;
-  String? reaction;
+import 'package:reaction_askany/models/emotions.dart';
 
-  ChatMessage({required this.sender, required this.text, this.reaction});
+class ChatMessage {
+  String? message;
+  bool? reciever;
+  Emotions? emotions;
+  ChatMessage({this.message, this.reciever, this.emotions});
 }
