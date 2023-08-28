@@ -1,4 +1,4 @@
 Apakah anda bisa/pernah menggunakan state management GetX? Pernah dan aplikasi test ini menggunakan GetX
 
 Menggunakan GetX => ^4.6.5
-dan Flutter version => 3.0.5
+dan Flutter version => 3.7.7
