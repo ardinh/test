@@ -23,7 +23,7 @@ class IndexScreen extends GetView<IndexController> {
       child: GetBuilder<IndexController>(
         init: IndexController(apiRepository: Get.find(), storage: Get.find()),
         builder: (c) {
-          return Obx(() => _buildWidget(context));
+          return _buildWidget(context);
         },
       ),
     );
